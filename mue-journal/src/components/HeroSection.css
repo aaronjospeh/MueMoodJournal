@@ -1,0 +1,63 @@
+/* --- Hero Section Layout --- */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  position: static; 
+  overflow: visible; 
+}
+
+.hero-content {
+  max-width: 650px;
+  z-index: 10;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.start-journaling-btn {
+  background: linear-gradient(135deg, var(--color-accent-1-light), #CBAACB); 
+  border: none;
+  border-radius: 30px;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s;
+}
+
+.start-journaling-btn:hover {
+  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(248, 216, 224, 0.3);
+}
+
+.next-section-title {
+  margin-top: 100px;
+  align-self: flex-start;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* Bubble Positions specific to the Hero Section's viewport */
+.bg-circles-container .circle-1 {
+    top: 5%; 
+    left: 5%;
+    background: radial-gradient(circle, var(--color-accent-1-light) 0%, transparent 70%);
+    animation: float1 15s ease-in-out infinite alternate;
+}
+.bg-circles-container .circle-2 {
+    top: 45%; 
+    right: 15%;
+    background: radial-gradient(circle, var(--color-accent-2-light) 0%, transparent 70%);
+    animation: float2 18s ease-in-out infinite alternate;
+}
+/* Note: Circle 3 is positioned based on the bottom, handled below */

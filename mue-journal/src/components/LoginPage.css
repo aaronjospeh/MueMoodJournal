@@ -1,0 +1,58 @@
+/* src/components/LoginPage.css */
+.login-page-container {
+    min-height: calc(100vh - 80px); /* Account for the fixed header padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1; /* Keep it above background bubbles */
+}
+
+.login-form-box {
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-form-box h2 {
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-form-box p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.login-form-box input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #333;
+    color: var(--color-text-primary);
+    font-size: 1em;
+}
+
+.submit-login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    /* Use your accent colors for the submit button */
+    background: linear-gradient(135deg, var(--color-accent-2-light), #90a4ae);
+    color: var(--color-text-secondary);
+    margin-top: 10px;
+}

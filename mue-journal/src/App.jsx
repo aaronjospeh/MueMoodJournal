@@ -1,43 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
 
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+// REMOVE: import Header from "./components/Header.jsx";
+import HeroSection from "./components/HeroSection.jsx";
+import AboutUsSection from "./components/AboutUsSection.jsx";
 
-  return (
-    <>
-      <div>
-        {/* Vite logo */}
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        {/* React logo */}
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      {/* Title */}
-      <h1>Vite + React</h1>
-      {/* Counter card */}
-      <div className="card">
-        {/* Counter logic in a button */}
-        <button onClick={() => setCount((count) => count + 1)}>
-          {/* Text display of counter */}
-          count is {count}
-        </button>
-        {/* Paragraph display */}
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      {/* Read the docs link */}
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => {
+    return (
+        // This div is the container for the landing page *content*
+        <div className="landing-page-content"> 
+            
+            {/* The global 'landing-page' class that sets padding/min-height will be applied in main.jsx */}
+            {/* The <div id="top"> is still useful for scrolling */}
+            <div id="top"></div> 
+            
+            <div className="content-wrapper">
+                {/* REMOVE: <Header /> */}
+                <HeroSection />
+                <AboutUsSection />
+            </div>
+        </div>
+    );
+};
 
-export default App
+export default App;

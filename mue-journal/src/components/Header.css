@@ -1,0 +1,93 @@
+/* --- Header Layout & Sticky --- */
+.header {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: transparent; /* Transparent background */
+  box-shadow: none; 
+  padding: 20px 40px; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header Elements */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.logo-icon {
+  width: var(--logo-icon-size);
+  height: var(--logo-icon-size);
+  margin-right: 10px;
+}
+
+.logo-name {
+  font-size: var(--font-size-logo-name);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  background: linear-gradient(180deg, #FADADD, #A7C7E7);
+  border-radius: 25px;
+  padding: 10px 15px;
+}
+
+.nav-item {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 0 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 20px;
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: var(--color-accent-1-light); 
+  color: var(--color-text-secondary); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.login-btn {
+  background: linear-gradient(180deg, #FADADD, #A7C7E7);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

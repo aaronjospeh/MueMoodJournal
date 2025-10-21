@@ -1,0 +1,95 @@
+/* --- About Us Section Layout --- */
+.about-us-section {
+    position: relative; 
+    min-height: 100vh; 
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: visible;
+    background-color: transparent; /* Inherits the dark page background */
+    transition: all 0.3s ease;
+}
+
+.about-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    grid-template-areas: 
+        "title"
+        "description"
+        "developer"; 
+    grid-template-columns: 1fr;
+    gap: 30px; 
+    padding: 0 50px;
+    max-width: 800px; 
+}
+
+.about-title {
+    grid-area: title;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.description-box {
+    grid-area: description;
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 40px;
+    text-align: left;
+    line-height: var(--line-height-paragraph);
+    box-shadow: 0 0 50px rgba(248, 216, 224, 0.15); 
+}
+
+.description-box p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.developer-btn-container {
+    grid-area: developer;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    padding-top: 40px; 
+}
+
+.developer-btn {
+    background: linear-gradient(135deg, #FADADD, #CBAACB);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: transform 0.2s;
+    min-width: 200px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.developer-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(248, 216, 224, 0.3);
+}
+
+.developer-btn .mue-logo-inside-btn {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Bubble Positions specific to the About Section's viewport */
+.bg-circles-container .circle-3 {
+    bottom: 5%; /* Anchor near the bottom of the About section */
+    left: 25%;
+    background: radial-gradient(circle, #f0f0f0 0%, transparent 70%); 
+    animation: float3 12s ease-in-out infinite alternate;
+    opacity: 0.15;
+}
