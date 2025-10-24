@@ -97,24 +97,24 @@ html {
 }
 
 .bubble-1 {
-    width: 80px;
-    height: 80px;
+    width: 300px;
+    height: 300px;
     top: 20%;
     left: 10%;
     animation: float1 6s ease-in-out infinite alternate;
 }
 
 .bubble-2 {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     top: 60%;
     right: 15%;
     animation: float2 8s ease-in-out infinite alternate;
 }
 
 .bubble-3 {
-    width: 60px;
-    height: 60px;
+    width: 350px;
+    height: 350px;
     top: 40%;
     left: 80%;
     animation: float3 7s ease-in-out infinite alternate;
@@ -129,12 +129,13 @@ html {
 }
 
 .bubble-5 {
-    width: 90px;
-    height: 90px;
+    width: 150px;
+    height: 150px;
     top: 10%;
     right: 30%;
     animation: float2 5s ease-in-out infinite alternate;
 }
+
 /* Keyframe Animations (Must stay global) */
 @keyframes float1 {
     0% { transform: translate(0, 0) scale(1) rotate(0deg); }

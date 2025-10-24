@@ -10,10 +10,16 @@
 }
 
 .login-form-box {
-    background-color: rgba(30, 30, 30, 0.9);
+    /* make background transparent / frosted glass */
+    background: rgba(255, 255, 255, 0.03); /* very translucent base so content remains legible */
+    backdrop-filter: blur(8px);            /* frosted effect on supported browsers */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06); /* subtle border to separate from background */
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        0 0 25px rgba(255, 199, 205, 0.8),
+        0 0 75px rgba(150, 169, 200, 0.8);
     width: 100%;
     max-width: 400px;
     text-align: center;
@@ -28,31 +34,106 @@
 
 .login-form-box p {
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 25px;
+    margin-bottom: 48px;
     font-size: 1rem;
 }
 
 .login-form-box input {
     width: 90%;
     padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #555;
-    border-radius: 8px;
-    background-color: #333;
-    color: var(--color-text-primary);
+    margin-bottom: 24px;
+    border: 1px solid #F7F8F9;
+    border-radius: 12px;
+    background-color: #F7F8F9;
+    color: var(--color-text-secondary);
     font-size: 1em;
+    font-weight: 100;
 }
 
+/* small override for password spacing */
+.login-form-box input#password {
+    margin-bottom: 6px;
+}
+
+/* Align form labels (username / password titles) with inputs and add spacing */
+.login-form-box label {
+    display: block;
+    width: 90%;
+    margin: 0 auto 8px;   /* match inputs and add spacing below label */
+    text-align: left;
+    box-sizing: border-box;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Make anchors inside the login box occupy the same visual width as inputs,
+   and left-align text. Per-link spacing is handled by .form-links. */
+.login-form-box a {
+    display: block;
+    width: 90%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+/* Ensure forgot password uses the requested color */
+.forgot-password-link {
+    color: #CBAACB;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.forgot-password-link:hover {
+    color: #ddaafb;
+    cursor: pointer;
+}
+
+/* Register link styling */
+.signup-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 200;
+    transition: color 150ms ease;
+}
+
+.signup-link:hover {
+    color: #ddaafb;      /* match forgot-password hover color */
+    cursor: pointer;
+}
+
+/* keep spacing container for links close to form and above button */
+.form-links {
+    width: 90%;
+    margin: 8px auto 20px;
+    box-sizing: border-box;
+}
+
+.form-links a {
+    margin: 16px 0;        /* spacing between links */
+}
+
+/* Submit button styling */
 .submit-login-btn {
-    width: 100%;
+    width: 75%;
     padding: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     border: none;
     border-radius: 8px;
     font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
     /* Use your accent colors for the submit button */
-    background: linear-gradient(135deg, var(--color-accent-2-light), #90a4ae);
-    color: var(--color-text-secondary);
-    margin-top: 10px;
+    background: #ddaafb;
+    color: var(--color-text-primary);
+    transition: color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+.submit-login-btn:hover {
+    color: #A288A2;   /* match forgot-password hover color */
+    cursor: pointer;
+    transform: translateY(-2px);
 }
