@@ -101,7 +101,7 @@ const RegisterPage = () => {
 
           {/* actions below the grid, centered */}
           <div className="register-actions">
-            <a href="/login" className="signup-link">Already have an account?</a>
+            <a href="/login" className="login-link">Already have an account?</a>
             <button type="submit" className="submit-login-btn">Register</button>
           </div>
          </form>

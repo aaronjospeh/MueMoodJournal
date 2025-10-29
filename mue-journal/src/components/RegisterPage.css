@@ -110,13 +110,19 @@
 }
 
 /* make the "already have an account" link visually subordinate to button */
-.register-actions .signup-link {
+.register-actions .login-link {
     text-decoration: none;
     font-size: 0.95rem;
     color: var(--color-text-primary);
     text-align: center;
     padding-bottom: 24px;
 }
+
+.login-link:hover {
+    color: #ddaafb;      /* match forgot-password hover color */
+    cursor: pointer;
+}
+
 
 /* responsive tweak: keep spacing on narrow screens */
 @media (max-width: 720px) {
