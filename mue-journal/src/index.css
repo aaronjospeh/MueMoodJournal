@@ -7,6 +7,7 @@
   --color-accent-2-light: #B2C9D7; 
   --color-text-primary: #FFFFFF; 
   --color-text-secondary: #333; 
+  --color-button-bg: #7a667a;
 
   /* Typography */
   --font-family: 'Nunito', sans-serif;
@@ -64,44 +65,41 @@ html {
 }
 
 /* --- Continuous Background Bubbles (Global) --- */
+/* Make container fixed and slightly larger than viewport so bubbles can't be clipped */
 .bg-circles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%; 
-    width: 100%;
+    position: fixed;
+    top: -20vh;      /* extend above the viewport */
+    left: -10vw;     /* extend left */
+    right: -10vw;    /* extend right */
+    bottom: -20vh;   /* extend below viewport to avoid bottom clipping */
+    height: calc(100vh + 40vh); /* matches top/bottom extension */
+    width: calc(100vw + 20vw);  /* matches left/right extension */
     pointer-events: none;
     z-index: 0; 
-    overflow: hidden; 
+    overflow: visible; 
 }
 
-.circle {
-    position: absolute; 
-    border-radius: 50%; 
-    opacity: 0.2;      
-    filter: blur(80px); 
-    transition: transform 10s ease-in-out infinite alternate; 
-}
-
-/* --- Subtle Background Bubbles --- */
+/* Single bubble base (keeps earlier .bubble rules but ensure transforms are not clipped) */
 .bubble {
     position: absolute;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(248, 216, 224, 0.15), rgba(178, 201, 215, 0.15));
-    filter: blur(1px);
+    filter: blur(20px);
     pointer-events: none;
     z-index: 0;
     box-shadow: 
         0 0 25px rgba(255, 199, 205, 0.8),
         0 0 75px rgba(150, 169, 200, 0.8);
+    transform-origin: center;
 }
 
+/* --- Subtle Background Bubbles --- */
 .bubble-1 {
     width: 300px;
     height: 300px;
     top: 20%;
     left: 10%;
-    animation: float1 6s ease-in-out infinite alternate;
+    animation: float1 4s ease-in-out infinite alternate;
 }
 
 .bubble-2 {
@@ -151,4 +149,28 @@ html {
     0% { transform: translate(0, 0) scale(1) rotate(0deg); }
     50% { transform: translate(10px, -20px) scale(1.15) rotate(90deg); }
     100% { transform: translate(25px, -35px) scale(1.03) rotate(180deg); }
+}
+
+/* Responsive reductions */
+@media (max-width: 900px) {
+    .bg-circles-container { top: -12vh; bottom: -12vh; left: -6vw; right: -6vw; }
+    .bubble { filter: blur(16px); opacity: 0.7; }
+}
+@media (max-width: 480px) {
+    .bg-circles-container { top: -8vh; bottom: -8vh; left: -4vw; right: -4vw; }
+    .bubble { filter: blur(12px); opacity: 0.55; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .bubble { animation: none !important; transition: none !important; }
+}
+
+/* Ensure main content sits above the fixed bubble layer */
+.content-wrapper,
+.landing-page,
+.login-page-container,
+.about-page-container {
+    position: relative;
+    z-index: 1;
 }

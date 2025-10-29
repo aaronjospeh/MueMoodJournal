@@ -7,6 +7,7 @@ import App from './App.jsx';
 import LoginPage from './components/LoginPage.jsx';
 import Header from './components/Header.jsx'; // <-- Import Header here
 import './index.css';
+import RegisterPage from './components/RegisterPage.jsx';
 
 // The Root component where routing is defined
 const RouterRoot = () => {
@@ -35,6 +36,9 @@ const RouterRoot = () => {
                 
                 {/* The Route element renders LoginPage.jsx for the login route */}
                 <Route path="/login" element={<LoginPage />} /> 
+                
+                {/* The Route element renders LoginPage.jsx for the login route */}
+                <Route path="/register" element={<RegisterPage />} /> 
             </Routes>
         </div>
     </BrowserRouter>

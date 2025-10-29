@@ -1,0 +1,133 @@
+/* register page specific styles (small overrides, container layout) */
+
+.register-page-container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1; /* Keep it above background bubbles */
+}
+
+/* Slightly larger form for registration (optional tweak) */
+.register-page-container .login-form-box {
+    max-width: 900px;
+    padding: 24px 48px 24px 48px;
+}
+
+/* Make birthdate input align with other inputs if you need a smaller width */
+.register-page-container input[type="date"] {
+    width: 90%;
+    display: block;
+    margin: 0 auto 24px;
+    box-sizing: border-box;
+}
+
+/* keep bubbles visible behind this page's content */
+.register-page-container .bubble-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.register-header {
+    color: var(--color-text-primary);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-size: 2rem;
+}
+
+/* Two-column form grid for registration */
+.register-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    gap: 28px 36px; /* increased row-gap and column-gap for better spacing */
+    align-items: start;
+}
+
+/* columns */
+.register-form-grid .col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* consistent vertical spacing between label + input groups inside each column */
+}
+
+/* make inputs inside grid take full column width */
+.register-form-grid .col input,
+.register-form-grid .col .password-wrapper {
+    width: 100%;
+    display: block;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ensure each label/input pair has consistent spacing */
+.register-form-grid label {
+    margin: 0 0 6px;
+    text-align: left;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+}
+
+/* make each input visually separated by adding bottom spacing via the column gap above;
+   keep an explicit small bottom margin on inputs to be safe */
+.register-form-grid .col input {
+    margin-bottom: 10px;
+}
+
+/* ensure password-wrapper inputs and toggle adapt inside grid columns */
+.register-form-grid .password-wrapper {
+    position: relative;
+}
+
+/* full-width utility for links/button row */
+.register-form-grid .full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 8px; /* slight separation from preceding grid content */
+}
+
+/* actions block styles */
+.register-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px; /* separation from the grid */
+    width: 100%;
+}
+
+/* ensure the register button matches form width visually */
+.register-actions .submit-login-btn {
+    width: 50%; /* matches the login button width for consistency */
+    margin: 0;  /* centered by flex container */
+    background-color: var(--color-button-bg);
+}
+
+/* make the "already have an account" link visually subordinate to button */
+.register-actions .signup-link {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+/* responsive tweak: keep spacing on narrow screens */
+@media (max-width: 720px) {
+    .register-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .register-page-container .login-form-box {
+        padding: 28px;
+        max-width: 420px;
+    }
+    .register-actions .submit-login-btn {
+        width: 85%;
+    }
+}

@@ -39,20 +39,17 @@
 }
 
 .login-form-box input {
+    display: block;
     width: 90%;
     padding: 12px;
-    margin-bottom: 24px;
+    margin: 0 auto 24px; /* same bottom spacing for both inputs */
     border: 1px solid #F7F8F9;
     border-radius: 12px;
     background-color: #F7F8F9;
     color: var(--color-text-secondary);
     font-size: 1em;
     font-weight: 100;
-}
-
-/* small override for password spacing */
-.login-form-box input#password {
-    margin-bottom: 6px;
+    box-sizing: border-box;
 }
 
 /* Align form labels (username / password titles) with inputs and add spacing */
@@ -127,13 +124,59 @@
     font-weight: 600;
     cursor: pointer;
     /* Use your accent colors for the submit button */
-    background: #ddaafb;
+    background: var(--color-button-bg);
     color: var(--color-text-primary);
     transition: color 150ms ease, background-color 150ms ease, transform 150ms ease;
 }
 
 .submit-login-btn:hover {
-    color: #A288A2;   /* match forgot-password hover color */
+    color: var(--color-light-fg); /* lighter text color on hover */
     cursor: pointer;
     transform: translateY(-2px);
+}
+
+.password-wrapper {
+    position: relative;
+    width: 90%;
+    margin: 0 auto 24px;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* ensure input keeps consistent box sizing */
+.password-wrapper input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 48px;
+    margin-bottom: 0;
+    border: 1px solid #F7F8F9;
+    border-radius: 12px;
+    background-color: #F7F8F9;
+    color: var(--color-text-secondary);
+    font-size: 1em;
+    font-weight: 100;
+    box-sizing: border-box;
+    line-height: 1.2; /* ensure consistent internal layout */
+}
+
+/* center the icon vertically inside any password input */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%); /* reliable centering */
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #ddaafb;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 150ms ease;
+    opacity: 1;
+    visibility: visible;
 }

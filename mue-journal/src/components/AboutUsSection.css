@@ -41,7 +41,9 @@
     padding: 40px;
     text-align: left;
     line-height: var(--line-height-paragraph);
-    box-shadow: 0 0 50px rgba(248, 216, 224, 0.15); 
+    /* box-shadow: 0 0 50px rgba(248, 216, 224, 0.15);  */
+    box-shadow: #CBAACB 0px 0px 25px, #FADADD 0px 0px 75px;
+    background-color: transparent;
 }
 
 .description-box p {
