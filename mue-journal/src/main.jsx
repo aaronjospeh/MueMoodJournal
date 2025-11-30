@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage.jsx';
 import Header from './components/Header.jsx'; // <-- Import Header here
 import './index.css';
 import RegisterPage from './components/RegisterPage.jsx';
+import ForgotPassword from './components/ForgotPassword.jsx'; // add this import
 
 // The Root component where routing is defined
 const RouterRoot = () => {
@@ -39,6 +40,10 @@ const RouterRoot = () => {
                 
                 {/* The Route element renders LoginPage.jsx for the login route */}
                 <Route path="/register" element={<RegisterPage />} /> 
+
+                {/* The Route element renders ForgotPassword.jsx for the forgot-password route */}
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+
             </Routes>
         </div>
     </BrowserRouter>
