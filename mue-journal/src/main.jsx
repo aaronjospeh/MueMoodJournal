@@ -6,9 +6,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.jsx';
 import LoginPage from './components/LoginPage.jsx';
 import Header from './components/Header.jsx'; // <-- Import Header here
+import Footer from './components/Footer.jsx'; // add this import
 import './index.css';
 import RegisterPage from './components/RegisterPage.jsx';
 import ForgotPassword from './components/ForgotPassword.jsx'; // add this import
+import AboutPage from './components/AboutPage.jsx'; // new import
+import UserDashboard from './pages/UserDashboard.jsx'; // <-- Import UserDashboard here
 
 // The Root component where routing is defined
 const RouterRoot = () => {
@@ -44,7 +47,15 @@ const RouterRoot = () => {
                 {/* The Route element renders ForgotPassword.jsx for the forgot-password route */}
                 <Route path="/forgot-password" element={<ForgotPassword />} />
 
+                {/* The Route element renders AboutPage.jsx for the about route */}
+                <Route path="/about" element={<AboutPage />} />  {/* new about page */}
+
+                {/* The Route element renders UserDashboard.jsx for the dashboard route */}
+                <Route path="/dashboard" element={<UserDashboard />} />  {/* new dashboard route */}
             </Routes>
+
+            {/* Footer - visible on ALL pages */}
+            <Footer />
         </div>
     </BrowserRouter>
   );

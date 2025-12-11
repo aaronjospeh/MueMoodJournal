@@ -1,6 +1,6 @@
 import React from 'react';
 import MueLogo from '../assets/mue.svg'; // Import Mue logo for the button
-import './AboutUsSection.css';
+import './AboutPage.css';
 
 const AboutUsSection = () => {
     return (
