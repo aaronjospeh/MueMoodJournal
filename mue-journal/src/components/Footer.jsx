@@ -1,58 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './Footer.css';
-
-// const Footer = () => {
-//   const currentYear = new Date().getFullYear();
-
-//   return (
-//     <footer className="footer">
-//       <div className="footer-content">
-//         <div className="footer-section">
-//           <h4>Mue</h4>
-//           <p>Your personal journaling companion</p>
-//         </div>
-
-//         <div className="footer-section">
-//           <h5>Quick Links</h5>
-//           <ul>
-//             <li><Link to="/">Home</Link></li>
-//             <li><Link to="/about">About Us</Link></li>
-//             <li><Link to="/login">Login</Link></li>
-//             <li><Link to="/register">Register</Link></li>
-//           </ul>
-//         </div>
-
-//         <div className="footer-section">
-//           <h5>Support</h5>
-//           <ul>
-//             <li><a href="mailto:support@mue.com">Contact Us</a></li>
-//             <li><a href="#privacy">Privacy Policy</a></li>
-//             <li><a href="#terms">Terms of Service</a></li>
-//           </ul>
-//         </div>
-
-//         <div className="footer-section">
-//           <h5>Follow Us</h5>
-//           <ul>
-//             <li><a href="#twitter">Twitter</a></li>
-//             <li><a href="#instagram">Instagram</a></li>
-//             <li><a href="#facebook">Facebook</a></li>
-//           </ul>
-//         </div>
-//       </div>
-
-//       <div className="footer-bottom">
-//         <p>&copy; {currentYear} Mue. All rights reserved.</p>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
-
-// src/components/Footer.jsx
+import mueLogo from '../assets/mue.svg';
 import "./footer.css";
 
 const Footer = () => {
@@ -63,7 +11,7 @@ const Footer = () => {
         <div className="footer-left">
           <div className="brand">
             <div className="brand-logo">
-              <span className="brand-emoji">🙂</span>
+              <img src={mueLogo} alt="Mue logo" className="logo-icon" />
             </div>
             <h2 className="brand-name">Mue</h2>
           </div>

@@ -1,42 +1,32 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DashboardHeader from '../components/DashboardHeader.jsx';
 import MoodEmotionSection from '../components/MoodEmotionSection.jsx';
 import PopularQuotesSection from '../components/PopularQuotesSection.jsx';
-import Footer from '../components/Footer.jsx';
+import ImportanceOfJournalingSection from "../components/ImportanceOfJournalingSection.jsx";
 import DashboardSidebar from '../components/DashboardSidebar.jsx';
+import Footer from '../components/Footer.jsx';
 import './UserDashboard.css';
 
 const UserDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [userName] = useState('John Doe'); // TODO: Replace with actual user data from context/auth
 
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
   return (
     <div className="dashboard-page">
-      {/* Dashboard Header */}
-      <header className="dashboard-header">
-        <div className="dashboard-header-left">
-          <button className="hamburger-btn" onClick={toggleSidebar} aria-label="Toggle menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </button>
-          <Link to="/" className="dashboard-logo">
-            <span className="logo-emoji">🙂</span>
-            <span className="logo-text">Mue</span>
-          </Link>
-        </div>
+      {/* Background Bubbles - similar to landing page */}
+      <div className="bg-circles-container" aria-hidden="true">
+        <div className="bubble bubble-1"></div>
+        <div className="bubble bubble-2"></div>
+        <div className="bubble bubble-3"></div>
+        <div className="bubble bubble-4"></div>
+        <div className="bubble bubble-5"></div>
+      </div>
 
-        <div className="dashboard-header-right">
-          <button className="user-icon-btn" aria-label="User profile">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
-              <circle cx="12" cy="10" r="3" fill="currentColor"/>
-              <path d="M6.5 18.5c1-2 3-3.5 5.5-3.5s4.5 1.5 5.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
-      </header>
+      {/* Dashboard Header - pass userName prop */}
+      <DashboardHeader onMenuToggle={toggleSidebar} userName={userName} />
 
       {/* Sidebar */}
       <DashboardSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
@@ -60,8 +50,9 @@ const UserDashboard = () => {
         {/* Reused Sections */}
         <MoodEmotionSection />
         <PopularQuotesSection />
+        <ImportanceOfJournalingSection />
 
-        {/* Footer */}
+        {/* Footer - only on dashboard */}
         <Footer />
       </main>
     </div>

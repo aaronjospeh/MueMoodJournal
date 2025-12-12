@@ -5,7 +5,9 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: transparent; /* Transparent background */
+  background: rgba(30, 30, 30, 0.3); /* transparent background */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: none; 
   padding: 20px 40px; 
   display: flex; 
