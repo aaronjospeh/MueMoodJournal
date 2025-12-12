@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => setShowPassword(prev => !prev);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Basic validation - ensure fields are filled
+    if (username.trim() && password.trim()) {
+      // TODO: Add actual authentication logic here
+      // For now, simply redirect to dashboard
+      navigate('/dashboard');
+    } else {
+      alert('Please fill in all fields');
+    }
+  };
 
   return (
     <div className="login-page-container">
@@ -13,9 +29,16 @@ const LoginPage = () => {
         <h2>Welcome to Mue!</h2>
         <p>Please enter your username and password</p>
         
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
-          <input id="username" type="email" placeholder="Enter your Username or Email" required />
+          <input 
+            id="username" 
+            type="email" 
+            placeholder="Enter your Username or Email" 
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required 
+          />
 
           <label htmlFor="password">Password</label>
 
@@ -25,6 +48,8 @@ const LoginPage = () => {
               id="password"
               type={showPassword ? 'text' : 'password'}
               placeholder="Enter your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button
@@ -50,7 +75,7 @@ const LoginPage = () => {
           </div>
 
           <div className="form-links">
-            <a href="forgot-password" className="forgot-password-link">Forgot password?</a>
+            <Link to="/forgot-password" className="forgot-password-link">Forgot password?</Link>
             <Link to="/register" className="signup-link">Don't have an account yet?</Link>
           </div>
 

@@ -1,9 +1,10 @@
 // src/App.jsx
 
 import React from 'react';
-// REMOVE: import Header from "./components/Header.jsx";
 import HeroSection from "./components/HeroSection.jsx";
-import AboutUsSection from "./components/AboutUsSection.jsx";
+import MoodEmotionSection from "./components/MoodEmotionSection.jsx";
+import PopularQuotesSection from "./components/PopularQuotesSection.jsx";
+import ImportanceOfJournalingSection from "./components/ImportanceOfJournalingSection.jsx";
 
 const App = () => {
     return (
@@ -15,9 +16,10 @@ const App = () => {
             <div id="top"></div> 
             
             <div className="content-wrapper">
-                {/* REMOVE: <Header /> */}
                 <HeroSection />
-                <AboutUsSection />
+                <MoodEmotionSection />
+                <PopularQuotesSection />
+                <ImportanceOfJournalingSection />
             </div>
         </div>
     );

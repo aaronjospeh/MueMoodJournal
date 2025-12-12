@@ -2,50 +2,72 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import App from './App.jsx';
 import LoginPage from './components/LoginPage.jsx';
-import Header from './components/Header.jsx'; // <-- Import Header here
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 import './index.css';
 import RegisterPage from './components/RegisterPage.jsx';
-import ForgotPassword from './components/ForgotPassword.jsx'; // add this import
+import ForgotPassword from './components/ForgotPassword.jsx';
+import AboutPage from './components/AboutPage.jsx';
+import UserDashboard from './pages/UserDashboard.jsx';
+
+// Layout wrapper to conditionally show Header and Footer
+const LayoutWrapper = ({ children }) => {
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith('/dashboard');
+
+  return (
+    <div className="landing-page">
+      {/* Background Circles - only on non-dashboard pages */}
+      {!isDashboard && (
+        <div className="bg-circles-container">
+          <div className="bubble bubble-1"></div>
+          <div className="bubble bubble-2"></div>
+          <div className="bubble bubble-3"></div>
+          <div className="bubble bubble-4"></div>
+          <div className="bubble bubble-5"></div>
+        </div>
+      )}
+
+      {/* Header - only on non-dashboard pages */}
+      {!isDashboard && <Header />}
+
+      {/* Main Routes */}
+      {children}
+
+      {/* Footer - only on non-dashboard pages */}
+      {!isDashboard && <Footer />}
+    </div>
+  );
+};
 
 // The Root component where routing is defined
 const RouterRoot = () => {
   return (
     <BrowserRouter>
-        {/* The top-level application container that defines the background and global layout */}
-        <div className="landing-page"> 
+      <LayoutWrapper>
+        <Routes>
+          {/* The Route element renders App.jsx for the home route */}
+          <Route path="/" element={<App />} />
+          
+          {/* The Route element renders LoginPage.jsx for the login route */}
+          <Route path="/login" element={<LoginPage />} /> 
+          
+          {/* The Route element renders RegisterPage.jsx for the register route */}
+          <Route path="/register" element={<RegisterPage />} /> 
 
-            {/* Background Circles - Fixed and outside the routes */}
-            <div className="bg-circles-container">
-              {/* insert bubbles here */}
-                <div className="bubble bubble-1"></div>
-                <div className="bubble bubble-2"></div>
-                <div className="bubble bubble-3"></div>
-                <div className="bubble bubble-4"></div>
-                <div className="bubble bubble-5"></div>
-            </div>
+          {/* The Route element renders ForgotPassword.jsx for the forgot-password route */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
-            {/* Header - FIXED and visible on ALL pages */}
-            <Header /> 
+          {/* The Route element renders AboutPage.jsx for the about route */}
+          <Route path="/about" element={<AboutPage />} />
 
-            {/* Main content area where pages are swapped */}
-            <Routes>
-                {/* The Route element renders App.jsx for the home route */}
-                <Route path="/" element={<App />} />
-                
-                {/* The Route element renders LoginPage.jsx for the login route */}
-                <Route path="/login" element={<LoginPage />} /> 
-                
-                {/* The Route element renders LoginPage.jsx for the login route */}
-                <Route path="/register" element={<RegisterPage />} /> 
-
-                {/* The Route element renders ForgotPassword.jsx for the forgot-password route */}
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-
-            </Routes>
-        </div>
+          {/* The Route element renders UserDashboard.jsx for the dashboard route - separate layout */}
+          <Route path="/dashboard" element={<UserDashboard />} />
+        </Routes>
+      </LayoutWrapper>
     </BrowserRouter>
   );
 };
