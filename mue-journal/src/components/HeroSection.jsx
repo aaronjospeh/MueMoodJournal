@@ -9,7 +9,7 @@ const HeroSection = () => {
           <h1>Mood Journaling</h1>
           <h1>For You and Your Mood</h1> {/* Two H1s for separate lines */}
         <p className="subtitle">
-          Your cozy space to track moods, reflect feelings, and understand yourself
+          Mue: Your cozy space to track moods, reflect feelings, and understand yourself
         </p>
         
         <button className="start-journaling-btn">

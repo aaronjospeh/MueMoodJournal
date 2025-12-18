@@ -1,0 +1,79 @@
+.quotes-page { padding-top: 8px; }
+
+.quotes-toolbar { display: grid; gap: 36px; margin-top: 8px; }
+
+.quotes-toolbar { margin-bottom: 48px; }
+
+.search-wrapper { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+
+.search-input { 
+  height: 44px; border-radius: 12px; 
+  border: 2px solid rgba(255,255,255,0.35); 
+  background: rgba(255,255,255,0.06); color: var(--color-text-primary);
+  padding: 0 14px; outline: none;
+}
+
+.search-btn { 
+  height: 44px; width: 44px; border-radius: 12px; 
+  border: 2px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.08);
+  color: #fff; cursor: pointer; 
+}
+
+.filter-pills { display: flex; gap: 16px; flex-wrap: wrap; }
+.pill { 
+  padding: 8px 16px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.6);
+  color: #fff; background: rgba(255,255,255,0.1); cursor: pointer; 
+  font-weight: 600; font-size: 0.9rem; 
+  min-width: 120px;
+  text-align: center;
+  justify-content: center;
+}
+
+.pill-popular { background: linear-gradient(135deg, #9b7cae, #caa9d6); }
+.pill-happy { background: linear-gradient(135deg, #b6a261, #c6b57a); }
+.pill-sad { background: linear-gradient(135deg, #7189a2, #6e8aa7); }
+.pill-motivation { background: linear-gradient(135deg, #c48b8f, #d4a0a3); }
+
+.quotes-list {
+  display: grid;
+  gap: 48px;
+  margin: 28px auto 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.quote-list-card {
+  border: 3px solid rgba(240, 240, 240, 0.85);
+  border-radius: 16px;
+  padding: 16px 18px;
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.24), 0 0 32px rgba(150,169,200,0.28);
+}
+
+.quote-list-card.mood-popular {
+  background: linear-gradient(135deg, #9b7cae, #caa9d6);
+}
+
+.quote-list-card.mood-happy {
+  background: linear-gradient(135deg, #b6a261, #c6b57a);
+}
+
+.quote-list-card.mood-sad {
+  background: linear-gradient(135deg, #7189a2, #6e8aa7);
+}
+
+.quote-list-card.mood-motivation {
+  background: linear-gradient(135deg, #c48b8f, #d4a0a3);
+}
+
+.quote-list-text {
+  margin: 0 0 10px 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+
+@media (max-width: 720px) {
+  .search-wrapper { grid-template-columns: 1fr 44px; }
+}

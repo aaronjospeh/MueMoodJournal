@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './DashboardHeader.css';
 import mueLogo from '../assets/mue.svg';
 
-const DashboardHeader = ({ onMenuToggle, userName = 'John Doe' }) => {
+const DashboardHeader = ({ onMenuToggle, userName = 'Agatha Valerie' }) => {
   return (
     <header className="dashboard-header">
       <div className="dashboard-header-left">

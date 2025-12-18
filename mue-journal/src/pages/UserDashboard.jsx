@@ -10,7 +10,7 @@ import './UserDashboard.css';
 
 const UserDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userName] = useState('John Doe'); // TODO: Replace with actual user data from context/auth
+  const [userName] = useState('Agatha Valerie'); // TODO: Replace with actual user data from context/auth
 
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
 

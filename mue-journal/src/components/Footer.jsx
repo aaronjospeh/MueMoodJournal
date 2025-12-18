@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import mueLogo from '../assets/mue.svg';
 import "./footer.css";
 
@@ -61,17 +62,17 @@ const Footer = () => {
             <h3 className="footer-heading">Reach Us</h3>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-square">✉</span>
+              <FaEnvelope className="contact-icon-svg" />
               <span className="contact-text">support@mue.app</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-circle">in</span>
+              <FaLinkedinIn className="contact-icon-svg" />
               <span className="contact-text">@MueApp</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-circle">◎</span>
+              <FaInstagram className="contact-icon-svg" />
               <span className="contact-text">@mue_app</span>
             </div>
           </div>

@@ -12,11 +12,15 @@ import RegisterPage from './components/RegisterPage.jsx';
 import ForgotPassword from './components/ForgotPassword.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import UserDashboard from './pages/UserDashboard.jsx';
+import DashboardStatistics from './pages/DashboardStatistics.jsx';
+import DashboardReport from './pages/DashboardReport.jsx';
+import DashboardQuotes from './pages/DashboardQuotes.jsx';
+import StartJournaling from './pages/StartJournaling.jsx';
 
 // Layout wrapper to conditionally show Header and Footer
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith('/dashboard');
+  const isDashboard = location.pathname.startsWith('/dashboard') || location.pathname === '/startjournaling';
 
   return (
     <div className="landing-page">
@@ -64,8 +68,14 @@ const RouterRoot = () => {
           {/* The Route element renders AboutPage.jsx for the about route */}
           <Route path="/about" element={<AboutPage />} />
 
-          {/* The Route element renders UserDashboard.jsx for the dashboard route - separate layout */}
+          {/* Dashboard routes */}
           <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/dashboard/statistics" element={<DashboardStatistics />} />
+          <Route path="/dashboard/report" element={<DashboardReport />} />
+          <Route path="/dashboard/quotes" element={<DashboardQuotes />} />
+
+          {/* Start Journaling route */}
+          <Route path="/startjournaling" element={<StartJournaling />} />
         </Routes>
       </LayoutWrapper>
     </BrowserRouter>

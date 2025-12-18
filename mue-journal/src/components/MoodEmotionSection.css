@@ -4,62 +4,120 @@
   z-index: 1;
 }
 
-.section-title {
-  text-align: center;
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.mood-emotion-section .section-title {
+  text-align: left;
   font-size: 2.5rem;
   color: var(--color-text-primary);
   margin: 0 0 10px 0;
   font-weight: 700;
 }
 
-.section-subtitle {
-  text-align: center;
+.mood-emotion-section .section-subtitle {
+  text-align: left;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 50px 0;
+  margin: 0 0 36px 0;
 }
 
-.emotions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-  margin-top: 40px;
+/* Horizontal marquee pills */
+.emotion-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 6px 0;
+  cursor: grab;
+  touch-action: pan-y;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.emotion-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: 0 0 32px rgba(255, 199, 205, 0.3), 0 0 60px rgba(150, 169, 200, 0.2);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+.emotion-marquee::-webkit-scrollbar {
+  display: none;
 }
 
-.emotion-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 40px rgba(255, 199, 205, 0.5), 0 0 80px rgba(150, 169, 200, 0.3);
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  user-select: none;
 }
 
-.emotion-icon {
-  font-size: 3.5rem;
-  margin-bottom: 16px;
+.emotion-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: 420px;
+  flex: 0 0 420px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-.emotion-title {
-  font-size: 1.4rem;
-  color: var(--color-text-primary);
-  margin: 0 0 12px 0;
-  font-weight: 600;
+.emotion-pill:hover {
+  transform: translateY(-4px);
 }
 
-.emotion-description {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.6;
-  margin: 0;
+.emotion-pill-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.emotion-pill-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emotion-pill-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.emotion-pill-desc {
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+/* Tone variants to match the sample palette */
+.tone-happy {
+  background: linear-gradient(135deg, #b6a261, #c6b57a);
+}
+
+.tone-sad {
+  background: linear-gradient(135deg, #7189a2, #6e8aa7);
+}
+
+.tone-mad {
+  background: linear-gradient(135deg, #9d6c73, #b07a82);
+}
+
+.tone-calm {
+  background: linear-gradient(135deg, #7ca48a, #8bb794);
+}
+
+.tone-bored {
+  background: linear-gradient(135deg, #9a839a, #a895a8);
+}
+
+.more-pill {
+  background: linear-gradient(135deg, #5458d9, #7a7df2);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -71,8 +129,9 @@
     font-size: 2rem;
   }
 
-  .emotions-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .emotion-pill {
+    width: 220px;
+    flex: 0 0 220px;
+    padding: 14px 16px;
   }
 }

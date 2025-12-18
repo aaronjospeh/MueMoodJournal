@@ -14,7 +14,13 @@ const ImportanceOfJournalingSection = () => {
           and make peace with yourself. Mue is here to make that process simple yet meaningful — a digital
           companion that accompanies your every feeling, without judgment, just listening.
         </p>
-        <Link to="/register" className="importance-btn">Start Journaling</Link>
+        
+        <div className="importance-footer">
+          <p className="importance-text">
+            Start writing today, and let every word bring you closer to yourself.
+          </p>
+          <Link to="/startjournaling" className="importance-btn">Start Journaling</Link>
+        </div>
       </div>
     </section>
   );

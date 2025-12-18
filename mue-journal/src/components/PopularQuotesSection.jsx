@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './PopularQuotesSection.css';
 
 const PopularQuotesSection = () => {
@@ -29,19 +29,69 @@ const PopularQuotesSection = () => {
     }
   ];
 
+  const railRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollStartRef = useRef(0);
+
+  const handlePointerDown = (e) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX;
+    scrollStartRef.current = rail.scrollLeft;
+    rail.style.cursor = 'grabbing';
+    rail.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const delta = e.clientX - startXRef.current;
+    const maxScroll = rail.scrollWidth - rail.clientWidth;
+    let nextScroll = scrollStartRef.current - delta;
+    if (nextScroll < 0) nextScroll = 0;
+    if (nextScroll > maxScroll) nextScroll = maxScroll;
+
+    rail.scrollLeft = nextScroll;
+    e.preventDefault();
+  };
+
+  const handlePointerUp = (e) => {
+    if (!isDraggingRef.current) return;
+    const rail = railRef.current;
+    isDraggingRef.current = false;
+    if (rail) {
+      rail.style.cursor = 'grab';
+      rail.releasePointerCapture(e.pointerId);
+    }
+  };
+
   return (
     <section className="quotes-section">
       <div className="content-wrapper">
         <h2 className="section-title">Popular Quotes</h2>
         <p className="section-subtitle">Inspiration for your journaling journey</p>
 
-        <div className="quotes-grid">
-          {quotes.map((quote, idx) => (
-            <div key={idx} className="quote-card">
-              <p className="quote-text">"{quote.text}"</p>
-              <p className="quote-author">— {quote.author}</p>
-            </div>
-          ))}
+        <div
+          className="quotes-rail"
+          ref={railRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+          aria-label="Popular quotes carousel"
+        >
+          <div className="quotes-track">
+            {quotes.map((quote, idx) => (
+              <div key={idx} className="quote-card">
+                <p className="quote-text">"{quote.text}"</p>
+                <p className="quote-author">— {quote.author}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

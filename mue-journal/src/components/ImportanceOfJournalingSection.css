@@ -22,23 +22,18 @@
 }
 
 .importance-title {
+  text-align: left;
   font-size: 2.5rem;
   color: var(--color-text-primary);
-  margin: 0 0 24px 0;
+  margin: 0 0 10px 0;
   font-weight: 700;
-  line-height: 1.3;
-  text-align: center;
 }
 
-.importance-text {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.8;
-  margin: 0 0 32px 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.importance-text{
+  text-align: left;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 36px 0;
 }
 
 .importance-cta {
@@ -53,7 +48,7 @@
   display: inline-block;
   padding: 14px 32px;
   background: #ddaafb;
-  color: #1a1a1a;
+  color: white;
   text-decoration: none;
   border-radius: 999px;
   font-weight: 600;
@@ -70,6 +65,24 @@
   background: #e8c0ff;
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(221, 170, 251, 0.5);
+  color: white
+}
+
+.importance-footer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 0;
+}
+
+.importance-footer .importance-text {
+  margin: 0;
+  flex: 1;
+}
+
+.importance-footer .importance-btn {
+  margin: 0;
+  flex-shrink: 0;
 }
 
 /* RESPONSIVE */
