@@ -26,9 +26,31 @@ const AboutUsSection = () => {
                 <div className="developer-btn-container">
                     <button className="developer-btn">
                         {/* --- KEY CHANGE 5: Mue Logo inside button --- */}
-                        <img src={MueLogo} alt="Mue Logo" className="mue-logo-inside-btn" />
                         <span>Our Developer</span>
                     </button>
+                </div>
+                {/* Vision & Mission Section */}
+                <div className="vision-mission">
+                    <h2 className="vm-title">Vision & Mission</h2>
+                    <div className="vm-grid">
+                        <div className="vm-card">
+                            <h3 className="vm-card-title">Vision</h3>
+                            <p className="vm-card-text">
+                                To be the most reliable and easy-to-use platform for managing each user's daily
+                                feelings and moods, helping users to understand their feelings and their need for
+                                emotional space through simplicity, clarity, and innovation.
+                            </p>
+                        </div>
+                        <div className="vm-card">
+                            <h3 className="vm-card-title">Mission</h3>
+                            <p className="vm-card-text">
+                                To simplify mood management by combining intuitive design, data-driven insights,
+                                and ease of use, MUE aims to help users better understand, explore, and navigate
+                                their inner feelings, creating individuals who understand themselves well and build a
+                                positive atmosphere for their own and others' well-being.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

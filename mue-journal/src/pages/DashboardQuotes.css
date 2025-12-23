@@ -33,6 +33,7 @@
 .pill-happy { background: linear-gradient(135deg, #b6a261, #c6b57a); }
 .pill-sad { background: linear-gradient(135deg, #7189a2, #6e8aa7); }
 .pill-motivation { background: linear-gradient(135deg, #c48b8f, #d4a0a3); }
+.pill-calm { background: linear-gradient(135deg, #7dae88, #9bc4a1); }
 
 .quotes-list {
   display: grid;
@@ -64,6 +65,10 @@
 
 .quote-list-card.mood-motivation {
   background: linear-gradient(135deg, #c48b8f, #d4a0a3);
+}
+
+.quote-list-card.mood-calm {
+  background: linear-gradient(135deg, #7dae88, #9bc4a1);
 }
 
 .quote-list-text {

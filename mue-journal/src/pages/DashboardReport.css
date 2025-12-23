@@ -1,7 +1,7 @@
 .report-page { padding-top: 8px; }
 
-.report-toolbar { margin-top: 24px; }
-.search-wrapper { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+.report-toolbar { margin-top: 24px; display: flex; gap: 16px; align-items: flex-start; }
+.search-wrapper { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; flex: 1; }
 .search-input { 
   height: 44px; border-radius: 12px; 
   border: 2px solid rgba(255,255,255,0.35); 
@@ -13,6 +13,68 @@
   height: 44px; width: 44px; border-radius: 12px; 
   border: 2px solid rgba(255,255,255,0.35); background: rgba(255,255,white,0.08);
   color: #fff; cursor: pointer; 
+}
+
+.filter-wrapper {
+  position: relative;
+}
+
+.filter-toggle-btn {
+  height: 44px; 
+  width: 44px; 
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.filter-toggle-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: rgba(40, 40, 50, 0.95);
+  border: 2px solid rgba(255,255,255,0.35);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 140px;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.filter-option {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+.filter-option:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.filter-option.active {
+  background: linear-gradient(135deg, #d4a8d8, #c89dd4);
 }
 
 .report-list { display: grid; gap: 28px; margin-top: 36px; }
@@ -31,13 +93,20 @@
 .quote-motivation {
   background: linear-gradient(135deg, #d4a0a3, #c48b8f);
 }
+.quote-happy {
+  background: linear-gradient(135deg, #c6b57a, #b6a261);
+}
 .quote-sad {
   background: linear-gradient(135deg, #7189a2, #6e8aa7);
 }
 .quote-calm {
   background: linear-gradient(135deg, #7ca48a, #8bb794);
 }
+.quote-popular {
+  background: linear-gradient(135deg, #a895a8, #9a839a);
+}
 
 @media (max-width: 720px) {
+  .report-toolbar { flex-direction: column; }
   .report-item { grid-template-columns: 1fr; }
 }

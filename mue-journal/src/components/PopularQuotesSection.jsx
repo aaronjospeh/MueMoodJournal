@@ -73,7 +73,7 @@ const PopularQuotesSection = () => {
     <section className="quotes-section">
       <div className="content-wrapper">
         <h2 className="section-title">Popular Quotes</h2>
-        <p className="section-subtitle">Inspiration for your journaling journey</p>
+        <p className="section-subtitle">Sometimes, a few words can calm an entire storm within. Find your peace in these little reminders - curated for you and your mood.</p>
 
         <div
           className="quotes-rail"

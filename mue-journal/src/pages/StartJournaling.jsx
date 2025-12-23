@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/Auth.jsx';
 import DashboardHeader from '../components/DashboardHeader.jsx';
 import DashboardSidebar from '../components/DashboardSidebar.jsx';
 import Footer from '../components/Footer.jsx';
@@ -7,9 +9,11 @@ import './StartJournaling.css';
 
 const StartJournaling = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userName] = useState('John Doe');
+  const [userName] = useState('Agatha Valerie');
   const [entry, setEntry] = useState('');
   const [quotes, setQuotes] = useState('');
+  const navigate = useNavigate();
+  const { isAuth, isChecking } = useAuth();
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
   const handleSave = () => {
@@ -18,6 +22,16 @@ const StartJournaling = () => {
     setEntry('');
     setQuotes('');
   };
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!isChecking && !isAuth) {
+      navigate('/login', { replace: true, state: { from: '/startjournaling' } });
+    }
+  }, [isAuth, isChecking, navigate]);
+
+  // Optionally render nothing while checking auth to avoid flicker
+  if (isChecking) return null;
 
   return (
     <div className="dashboard-page">

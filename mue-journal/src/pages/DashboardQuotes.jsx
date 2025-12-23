@@ -7,7 +7,7 @@ import './DashboardQuotes.css';
 
 const DashboardQuotes = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userName] = useState('John Doe');
+  const [userName] = useState('Agatha Valerie');
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
   const quotes = [
@@ -27,21 +27,14 @@ const DashboardQuotes = () => {
       text: 'Your emotions make you human. Even the unpleasant ones have a purpose.',
       mood: 'motivation'
     },
+    // NEW CALM QUOTES
     {
-      text: "You don't have to be okay all the time. Just be honest with what you feel.",
-      mood: 'popular'
+      text: 'Breath is the anchor of the mind.',
+      mood: 'calm'
     },
     {
-      text: 'You are allowed to be both a masterpiece and a work in progress.',
-      mood: 'happy'
-    },
-    {
-      text: 'Peace does not mean an absence of conflicts; differences will always be there.',
-      mood: 'sad'
-    },
-    {
-      text: 'Your emotions make you human. Even the unpleasant ones have a purpose.',
-      mood: 'motivation'
+      text: 'Quiet the mind, and the soul will speak.',
+      mood: 'calm'
     },
     {
       text: "You don't have to be okay all the time. Just be honest with what you feel.",
@@ -59,7 +52,6 @@ const DashboardQuotes = () => {
       text: 'Your emotions make you human. Even the unpleasant ones have a purpose.',
       mood: 'motivation'
     }
-    
   ];
 
   return (
@@ -90,6 +82,8 @@ const DashboardQuotes = () => {
                 <button className="pill pill-happy">Happy</button>
                 <button className="pill pill-sad">Sad</button>
                 <button className="pill pill-motivation">Motivation</button>
+                {/* NEW CALM BUTTON */}
+                <button className="pill pill-calm">Calm</button>
               </div>
             </div>
           </div>

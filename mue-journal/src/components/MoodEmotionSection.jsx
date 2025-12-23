@@ -79,7 +79,7 @@ const MoodEmotionSection = () => {
     <section className="mood-emotion-section">
       <div className="content-wrapper">
         <h2 className="section-title">Moods & Emotions</h2>
-        <p className="section-subtitle">Understanding your emotional landscape</p>
+        <p className="section-subtitle">Mood is a reflection of the emotions we feel at any given moment, and recognizing them helps us understand ourselves more deeply.</p>
 
         <div
           className="emotion-marquee"

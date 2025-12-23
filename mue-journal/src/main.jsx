@@ -1,6 +1,4 @@
-// src/main.jsx
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import App from './App.jsx';
@@ -16,11 +14,23 @@ import DashboardStatistics from './pages/DashboardStatistics.jsx';
 import DashboardReport from './pages/DashboardReport.jsx';
 import DashboardQuotes from './pages/DashboardQuotes.jsx';
 import StartJournaling from './pages/StartJournaling.jsx';
+import AuthProvider from './context/Auth.jsx';
+
+// 1. IMPORT REACT QUERY
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// 2. CREATE THE CLIENT INSTANCE
+const queryClient = new QueryClient();
 
 // Layout wrapper to conditionally show Header and Footer
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith('/dashboard') || location.pathname === '/startjournaling';
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
 
   return (
     <div className="landing-page">
@@ -53,28 +63,15 @@ const RouterRoot = () => {
     <BrowserRouter>
       <LayoutWrapper>
         <Routes>
-          {/* The Route element renders App.jsx for the home route */}
           <Route path="/" element={<App />} />
-          
-          {/* The Route element renders LoginPage.jsx for the login route */}
           <Route path="/login" element={<LoginPage />} /> 
-          
-          {/* The Route element renders RegisterPage.jsx for the register route */}
           <Route path="/register" element={<RegisterPage />} /> 
-
-          {/* The Route element renders ForgotPassword.jsx for the forgot-password route */}
           <Route path="/forgot-password" element={<ForgotPassword />} />
-
-          {/* The Route element renders AboutPage.jsx for the about route */}
           <Route path="/about" element={<AboutPage />} />
-
-          {/* Dashboard routes */}
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/dashboard/statistics" element={<DashboardStatistics />} />
           <Route path="/dashboard/report" element={<DashboardReport />} />
           <Route path="/dashboard/quotes" element={<DashboardQuotes />} />
-
-          {/* Start Journaling route */}
           <Route path="/startjournaling" element={<StartJournaling />} />
         </Routes>
       </LayoutWrapper>
@@ -84,6 +81,11 @@ const RouterRoot = () => {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterRoot />
+        {/* 3. WRAP EVERYTHING (INCLUDING AUTHPROVIDER) WITH QUERYCLIENTPROVIDER */}
+        <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+                <RouterRoot />
+            </AuthProvider>
+        </QueryClientProvider>
     </React.StrictMode>,
 );

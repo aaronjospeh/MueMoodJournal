@@ -7,15 +7,22 @@ import './DashboardReport.css';
 
 const DashboardReport = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userName] = useState('John Doe');
+  const [userName] = useState('Agatha Valerie');
+  const [activeFilter, setActiveFilter] = useState('weekly');
+  const [filterOpen, setFilterOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
+
+  const handleFilterSelect = (filter) => {
+    setActiveFilter(filter);
+    setFilterOpen(false);
+  };
 
   const reports = [
     {
       title: 'Achieving First Honor Award – A Proud Moment',
       date: '10 January 2024',
       moods: 'Happy, Thankful, Energetic',
-      quoteType: 'motivation'
+      quoteType: 'happy'
     },
     {
       title: 'Starting A New Habit – Consistency Wins',
@@ -27,7 +34,7 @@ const DashboardReport = () => {
       title: 'My First Big Talk in Front of Hundreds – Breaking Fear',
       date: '02 September 2023',
       moods: 'Nervous, Excited, Proud',
-      quoteType: 'motivation'
+      quoteType: 'popular'
     },
     {
       title: 'First Day of Department Orientation - Telkom University',
@@ -71,6 +78,37 @@ const DashboardReport = () => {
               <div className="search-wrapper">
                 <input className="search-input" placeholder="Search..." aria-label="Search reports" />
                 <button className="search-btn" aria-label="Search">🔍</button>
+              </div>
+              <div className="filter-wrapper">
+                <button 
+                  className="filter-toggle-btn" 
+                  onClick={() => setFilterOpen(!filterOpen)}
+                  aria-label="Filter"
+                >
+                  🔽
+                </button>
+                {filterOpen && (
+                  <div className="filter-dropdown">
+                    <button 
+                      className={`filter-option ${activeFilter === 'weekly' ? 'active' : ''}`}
+                      onClick={() => handleFilterSelect('weekly')}
+                    >
+                      Weekly
+                    </button>
+                    <button 
+                      className={`filter-option ${activeFilter === 'monthly' ? 'active' : ''}`}
+                      onClick={() => handleFilterSelect('monthly')}
+                    >
+                      Monthly
+                    </button>
+                    <button 
+                      className={`filter-option ${activeFilter === 'yearly' ? 'active' : ''}`}
+                      onClick={() => handleFilterSelect('yearly')}
+                    >
+                      Yearly
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
