@@ -1,0 +1,60 @@
+.journal-box { 
+  display: grid; gap: 12px; 
+  border-radius: 12px; padding: 16px; 
+}
+
+.journal-title { 
+  width: 100%; resize: vertical; border-radius: 12px; 
+  border: 2px solid rgba(200, 160, 220, 0.7);
+  background: rgba(255,255,255,0.06); color: var(--color-text-primary);
+  padding: 10px 14px; outline: none; font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.journal-textarea { 
+  width: 100%; resize: vertical; border-radius: 12px; 
+  border: 2px solid rgba(200, 160, 220, 0.7);
+  background: rgba(255,255,255,0.06); color: var(--color-text-primary);
+  padding: 10px 14px; outline: none; font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.journal-quotes {
+  width: 100%; resize: vertical; border-radius: 12px;
+  border: 2px solid rgba(200, 160, 220, 0.7);
+  background: rgba(255,255,255,0.06); color: var(--color-text-primary);
+  padding: 10px 14px; outline: none; font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.journal-title::placeholder{
+  color: #fff;
+  opacity: 0.7;
+}
+
+.journal-textarea::placeholder{
+  color: #fff;
+  opacity: 0.7;
+}
+
+.journal-quotes::placeholder {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.journal-actions { display: flex; justify-content: flex-end; }
+
+.save-btn { 
+  padding: 10px 20px; 
+  border-radius: 8px; 
+  border: 2px solid white;
+  background: #ddaafb; 
+  color: #fff; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: transform 160ms ease;
+}
+.save-btn:hover { transform: translateY(-2px); }

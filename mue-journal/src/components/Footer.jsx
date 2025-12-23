@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaLinkedinIn, FaInstagram, FaApple, FaGooglePlay } from 'react-icons/fa';
 import mueLogo from '../assets/mue.svg';
 import "./footer.css";
 
@@ -28,7 +29,7 @@ const Footer = () => {
 
           <div className="store-links">
             <a href="#" className="store-badge google">
-              <span className="store-icon">▶</span>
+              <FaGooglePlay className="store-icon" aria-label="Google Play" />
               <span className="store-text">
                 <span className="store-small">GET IT ON</span>
                 <span className="store-big">Google Play</span>
@@ -36,7 +37,7 @@ const Footer = () => {
             </a>
 
             <a href="#" className="store-badge apple">
-              <span className="store-icon"></span>
+              <FaApple className="store-icon" aria-label="Apple" />
               <span className="store-text">
                 <span className="store-small">Download on the</span>
                 <span className="store-big">App Store</span>
@@ -61,21 +62,25 @@ const Footer = () => {
             <h3 className="footer-heading">Reach Us</h3>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-square">✉</span>
+              <FaEnvelope className="contact-icon-svg" />
               <span className="contact-text">support@mue.app</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-circle">in</span>
+              <FaLinkedinIn className="contact-icon-svg" />
               <span className="contact-text">@MueApp</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon contact-icon-circle">◎</span>
+              <FaInstagram className="contact-icon-svg" />
               <span className="contact-text">@mue_app</span>
             </div>
           </div>
         </div>
+      </div>
+      
+      <div className="footer-copyright">
+        <p>© 2025 Mue. HUMIC Enginneering All rights reserved</p>
       </div>
     </footer>
   );

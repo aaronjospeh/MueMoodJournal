@@ -1,7 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/Auth.jsx';
 import './HeroSection.css';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const { isAuth } = useAuth();
+
+  const handleStartJournaling = () => {
+    if (isAuth) {
+      navigate('/startjournaling');
+    } else {
+      navigate('/login', { state: { from: '/startjournaling' } });
+    }
+  };
+
   return (
     <section className="hero-section">
       {/* Background Circles Container */}
@@ -9,10 +22,10 @@ const HeroSection = () => {
           <h1>Mood Journaling</h1>
           <h1>For You and Your Mood</h1> {/* Two H1s for separate lines */}
         <p className="subtitle">
-          Your cozy space to track moods, reflect feelings, and understand yourself
+          Mue: Your cozy space to track moods, reflect feelings, and understand yourself
         </p>
         
-        <button className="start-journaling-btn">
+        <button className="start-journaling-btn" onClick={handleStartJournaling}>
           Start Journaling
         </button>
       </div>

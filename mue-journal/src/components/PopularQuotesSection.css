@@ -4,41 +4,72 @@
   z-index: 1;
 }
 
-.quotes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
+.quotes-section .section-title {
+  text-align: left;
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+  .quotes-section .section-subtitle {
+  text-align: left;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 50px 0;
+}
+
+.quotes-rail {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0 6px;
+  cursor: grab;
+  touch-action: pan-y;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-top: 34px;
+}
+
+.quotes-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.quotes-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  user-select: none;
 }
 
 .quote-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 0 32px rgba(255, 199, 205, 0.25), 0 0 60px rgba(150, 169, 200, 0.15);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  min-width: 360px;
+  max-width: 480px;
+  background: rgba(120, 120, 128, 0.65);
+  border: 3px solid rgba(240, 240, 240, 0.85);
+  border-radius: 24px;
+  padding: 26px 30px;
+  color: #f9f9fb;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .quote-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 40px rgba(255, 199, 205, 0.4), 0 0 80px rgba(150, 169, 200, 0.25);
 }
 
 .quote-text {
-  font-size: 1.1rem;
-  color: var(--color-text-primary);
-  line-height: 1.8;
-  margin: 0 0 16px 0;
-  font-style: italic;
-  font-weight: 500;
+  font-size: 1.35rem;
+  color: #f9f9fb;
+  line-height: 1.5;
+  margin: 0 0 18px 0;
+  font-weight: 600;
 }
 
 .quote-author {
-  font-size: 0.95rem;
-  color: #ddaafb;
+  font-size: 1rem;
+  color: #dde3ff;
   margin: 0;
   font-weight: 600;
 }
@@ -48,12 +79,16 @@
     padding: 60px 16px;
   }
 
-  .quotes-grid {
-    grid-template-columns: 1fr;
+  .quotes-track {
     gap: 16px;
   }
 
+  .quote-card {
+    min-width: 280px;
+    padding: 22px 24px;
+  }
+
   .quote-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
