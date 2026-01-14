@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './DashboardHeader.css';
 import mueLogo from '../assets/mue.svg';
 
 const DashboardHeader = ({ onMenuToggle, userName = 'Agatha Valerie' }) => {
+  const navigate = useNavigate();
+
   return (
     <header className="dashboard-header">
       <div className="dashboard-header-left">
@@ -19,16 +21,22 @@ const DashboardHeader = ({ onMenuToggle, userName = 'Agatha Valerie' }) => {
       </div>
 
       <div className="dashboard-header-right">
-        <div className="user-profile">
-          <button className="user-icon-btn" aria-label="User profile">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
-              <circle cx="12" cy="10" r="3" fill="currentColor"/>
-              <path d="M6.5 18.5c1-2 3-3.5 5.5-3.5s4.5 1.5 5.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </button>
-          <span className="user-name">{userName}</span>
-        </div>
+        <button 
+          className="user-profile-btn"
+          onClick={() => navigate('/dashboard/profile')}
+          aria-label="Go to user profile"
+        >
+          <div className="user-profile">
+            <button className="user-icon-btn" aria-label="User profile">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+                <circle cx="12" cy="10" r="3" fill="currentColor"/>
+                <path d="M6.5 18.5c1-2 3-3.5 5.5-3.5s4.5 1.5 5.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </button>
+            <span className="user-name">{userName}</span>
+          </div>
+        </button>
       </div>
     </header>
   );
