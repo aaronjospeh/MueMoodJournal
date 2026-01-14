@@ -1,0 +1,433 @@
+/* User Profile Page Styles */
+
+.user-profile-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+.user-profile-container {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    margin: 48px;
+}
+
+.profile-content h1 {
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 36px;
+}
+
+.back-button {
+    background: transparent;
+    border: 1px solid rgba(221, 170, 251, 0.3);
+    color: rgba(221, 170, 251, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(221, 170, 251, 0.1);
+    border-color: rgba(221, 170, 251, 0.5);
+}
+
+.profile-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Profile Card Base Styles */
+.profile-card {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 40px;
+    margin-bottom: 24px;
+    box-shadow: #CBAACB 0px 0px 10px, #FADADD 0px 0px 30px;
+}
+
+/* User Info Card */
+.user-info-card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.user-avatar {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(221, 170, 251, 0.08);
+    border: 2px solid rgba(221, 170, 251, 0.25);
+    border-radius: 50%;
+}
+
+.user-avatar svg {
+    width: 100%;
+    height: 100%;
+}
+
+.user-info-text {
+    flex: 1;
+}
+
+.user-info-text h2 {
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.last-login {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+/* Profile Details Card */
+.profile-details-card {
+    padding: 40px;
+}
+
+/* View Mode */
+.view-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(221, 170, 251, 0.15);
+    transition: all 0.3s ease;
+}
+
+.profile-field:hover {
+    background: transparent;
+    border-color: rgba(221, 170, 251, 0.25);
+}
+
+.profile-field:last-child {
+    border-bottom: none;
+}
+
+.field-label {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 130px;
+    white-space: nowrap;
+}
+
+.field-value {
+    flex: 1;
+    margin-left: 24px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    text-align: left;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: rgba(221, 170, 251, 0.5);
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.edit-btn:hover {
+    color: rgba(221, 170, 251, 0.9);
+}
+
+/* Gender Dropdown Field */
+.gender-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gender-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    flex: 1;
+    max-width: 240px;
+}
+
+.gender-icon {
+    position: absolute;
+    left: 14px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gender-dropdown {
+    flex: 1;
+    padding: 12px 40px 12px 44px;
+    background: rgba(60, 60, 70, 0.6);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+}
+
+.gender-dropdown.female {
+    border-color: rgba(221, 170, 251, 0.8);
+    background: rgba(221, 170, 251, 0.15);
+    color: rgba(221, 170, 251, 1);
+}
+
+.gender-dropdown.female .gender-icon {
+    color: rgba(221, 170, 251, 1);
+}
+
+.gender-dropdown.male {
+    border-color: rgba(100, 149, 237, 0.8);
+    background: rgba(100, 149, 237, 0.15);
+    color: rgba(100, 149, 237, 1);
+}
+
+.gender-dropdown.male .gender-icon {
+    color: rgba(100, 149, 237, 1);
+}
+
+.gender-dropdown.other {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.gender-dropdown:hover {
+    background: rgba(80, 80, 90, 0.7);
+}
+
+.gender-dropdown:focus {
+    outline: none;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 12px;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.gender-dropdown.female ~ .gender-icon,
+.gender-dropdown.female ~ .dropdown-arrow {
+    color: rgba(221, 170, 251, 1);
+}
+
+.gender-dropdown.male ~ .gender-icon,
+.gender-dropdown.male ~ .dropdown-arrow {
+    color: rgba(100, 149, 237, 1);
+}
+
+/* Edit Mode */
+.edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-group label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.edit-group input,
+.edit-group select {
+    padding: 12px 16px;
+    background: rgba(221, 170, 251, 0.05);
+    border: 1px solid rgba(221, 170, 251, 0.2);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.edit-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.edit-group input:focus,
+.edit-group select:focus {
+    background: rgba(221, 170, 251, 0.08);
+    border-color: rgba(221, 170, 251, 0.4);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(221, 170, 251, 0.1);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-save,
+.btn-cancel {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #ddaafb 0%, #b88ae0 100%);
+    color: #fff;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(221, 170, 251, 0.3);
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-profile-container {
+        padding: 24px 16px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+
+    .user-info-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .profile-card {
+        padding: 24px;
+    }
+
+    .profile-details-card {
+        padding: 24px;
+    }
+
+    .profile-field {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .field-value {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .gender-dropdown-wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .gender-dropdown {
+        width: 100% !important;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .user-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .user-info-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .edit-actions {
+        flex-direction: column;
+    }
+
+    .field-label {
+        min-width: 100px;
+    }
+}

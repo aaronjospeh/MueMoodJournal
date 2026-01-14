@@ -66,6 +66,26 @@
   align-items: center;
 }
 
+.user-profile-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-profile-btn:hover {
+  background: rgba(221, 170, 251, 0.1);
+}
+
+.user-profile-btn:active {
+  transform: scale(0.98);
+}
+
 /* User Profile - name on LEFT, icon on RIGHT */
 .user-profile {
   display: flex;

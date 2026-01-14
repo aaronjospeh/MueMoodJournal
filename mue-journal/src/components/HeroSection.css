@@ -23,7 +23,7 @@
 }
 
 .start-journaling-btn {
-  background: linear-gradient(135deg, var(--color-accent-1-light), #CBAACB); 
+  background: linear-gradient(135deg, var(--color-accent-1-light), #bb9abb); 
   border: none;
   border-radius: 30px;
   padding: 15px 40px;

@@ -47,7 +47,7 @@
 .importance-btn {
   display: inline-block;
   padding: 14px 32px;
-  background: #ddaafb;
+  background: #CBAACB;
   color: white;
   text-decoration: none;
   border-radius: 999px;
@@ -62,7 +62,7 @@
 }
 
 .importance-btn:hover {
-  background: #e8c0ff;
+  background: #CBAACB;
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(221, 170, 251, 0.5);
   color: white

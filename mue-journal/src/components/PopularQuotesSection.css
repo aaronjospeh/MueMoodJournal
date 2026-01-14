@@ -61,7 +61,7 @@
 
 .quote-text {
   font-size: 1.35rem;
-  color: #f9f9fb;
+  color: #ffffff;
   line-height: 1.5;
   margin: 0 0 18px 0;
   font-weight: 600;
@@ -69,10 +69,11 @@
 
 .quote-author {
   font-size: 1rem;
-  color: #dde3ff;
+  color: #ffffff;
   margin: 0;
   font-weight: 600;
 }
+
 
 @media (max-width: 720px) {
   .quotes-section {
